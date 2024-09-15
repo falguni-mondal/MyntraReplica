@@ -10,49 +10,11 @@ import NavDropdown from './NavDropdown';
 const Nav = () => {
 
     const [nav] = useContext(DataContext);
-    const [category, setCategory] = useState(null);
-    // const navLinks = [
-    //     {
-    //         title: "men",
-    //         path: "/shop/men",
-    //         border: "border-b-[#ee5f73]",
-    //         new: false,
-    //     },
-    //     {
-    //         title: "women",
-    //         path: "/shop/women",
-    //         border: "border-b-[#fb56c1]",
-    //         new: false,
-    //     },
-    //     {
-    //         title: "kids",
-    //         path: "/shop/kids",
-    //         border: "border-b-[#f26a10]",
-    //         new: false,
-    //     },
-    //     {
-    //         title: "home & living",
-    //         path: "/shop/home&living",
-    //         border: "border-b-[#f2c210]",
-    //         new: false,
-    //     },
-    //     {
-    //         title: "beauty",
-    //         path: "/shop/beauty",
-    //         border: "border-b-[#0db7af]",
-    //         new: false,
-    //     },
-    //     {
-    //         title: "studio",
-    //         path: "/studio",
-    //         border: "border-b-[#ff3f6c]",
-    //         new: true,
-    //     }
-    // ]
+    const [visible, setVisible ] = useState(false)
 
     return (
         <header className='w-full max-w-screen-2xl mx-auto fixed flex flex-col'>
-            <div className="navbar bg-[#ffffff] h-[13.2vh] flex justify-between items-center pl-[3.8vw] pr-[2vw] shadow-md shadow-zinc-100">
+            <div className="navbar bg-[#ffffff] h-[80px] flex justify-between items-center pl-[3.8vw] pr-[2vw] shadow-md shadow-zinc-100">
                 <div className="logo-nav-container h-full flex gap-[1vw] items-center">
                     <div className="logo-container">
                         <a href="#">
@@ -66,9 +28,9 @@ const Nav = () => {
                             {
                                 nav.map(item => (
                                     <li className='navlink' key={item.id}>
-                                        <NavLink className={`${item.border} ${item.new && 'relative'} hover:border-b-[4px] uppercase h-[8.2vh] px-[1.1rem] text-[0.9rem] text-[#282c3f] flex items-start`} to={item.path}>{item.title}{item.new && <span className='absolute top-0 right-[-0.3rem] text-[0.6rem] text-[#ff3f6c]'>new</span>}</NavLink>
+                                        <NavLink className={`${item.border} ${item.new && 'relative'} hover:border-b-[4px] uppercase h-[50px] px-[1.1rem] text-[0.9rem] text-[#282c3f] flex items-start`} to={item.path}>{item.title}{item.new && <span className='absolute top-0 right-[-0.3rem] text-[0.6rem] text-[#ff3f6c]'>new</span>}</NavLink>
                                         {
-                                           item.category && <NavDropdown data={item.category} />
+                                           item.category && <NavDropdown data={item.category} visibility={[visible, setVisible]} />
                                         }
                                     </li>
                                 ))

@@ -2,13 +2,16 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 
 
-const NavDropdown = ({ data }) => {
+const NavDropdown = ({ data, visibility }) => {
   const categoryColor = data[0].color;
   const categories = data[1];
-
+  const [visible, setVisible] = visibility
+  // const efgh = (e)=>{
+  //   e.target.id === 'navcategory-bg' && setVisible(false)
+  // }
 
   return (
-    <div className='navcategory-bg fixed invisible h-[86.8vh] top-[80px] left-0 w-full flex justify-center bg-[rgba(0,0,0,0.1)]'>
+    <div className={`navcategory-bg fixed ${visible ? 'visible' : 'invisible'} h-[86.8vh] top-[80px] left-0 w-full flex justify-center bg-[rgba(0,0,0,0.1)]`}>
       <div className="navcategory w-[85%] h-[70vh] bg-white p-4 px-8 rounded-sm">
         <ul className='category-list-container w-full h-full flex flex-col flex-wrap gap-1.5'>
           {
@@ -29,7 +32,7 @@ const NavDropdown = ({ data }) => {
                         ))
                       }
                     </ul>
-                    <span className='h-[1px] w-[50%] bg-[#999] inline-block'></span>
+                    <span className='h-[1px] w-[50%] bg-[#0000003d] inline-block'></span>
                   </>
                 }
               </li>
