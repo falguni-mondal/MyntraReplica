@@ -9,8 +9,8 @@ import NavDropdown from './NavDropdown';
 
 const Nav = () => {
 
-    const [ nav ] = useContext(DataContext);
-    const [ category, setCategory] = useState(null);
+    const [nav] = useContext(DataContext);
+    const [category, setCategory] = useState(null);
     // const navLinks = [
     //     {
     //         title: "men",
@@ -67,6 +67,9 @@ const Nav = () => {
                                 nav.map(item => (
                                     <li key={item.id}>
                                         <Link onMouseEnter={() => setCategory(item.category)} onMouseLeave={() => setCategory('')} className={`${item.border} ${item.new && 'relative'} hover:border-b-[4px] uppercase h-[8.2vh] px-[1.1rem] text-[0.9rem] text-[#282c3f] flex items-start`} to={item.path}>{item.title}{item.new && <span className='absolute top-0 right-[-0.3rem] text-[0.6rem] text-[#ff3f6c]'>new</span>}</Link>
+                                        {
+                                            category && <NavDropdown data={category} />
+                                        }
                                     </li>
                                 ))
                             }
@@ -85,9 +88,6 @@ const Nav = () => {
                     </div>
                 </div>
             </div>
-            {
-                category && <NavDropdown data={category} />
-            }
         </header>
     )
 }
