@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Assistant:wght@200..800&display=swap");
+@font-face {
+    font-family: assistant-bold;
+    src: url(assets/fonts/Assistant-Bold.woff);
+}
+@font-face {
+    font-family: assistant-regular;
+    src: url(assets/fonts/Assistant-Regular.woff);
+}
+
+html{
+  font-family: "assistant-regular";
+}
+#root{
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+.navlink:hover .navcategory-bg {
+  visibility: visible;
+}
