@@ -10,7 +10,6 @@ import NavDropdown from './NavDropdown';
 const Nav = () => {
 
     const [nav] = useContext(DataContext);
-    const [visible, setVisible ] = useState(false)
 
     return (
         <header className='w-full max-w-screen-2xl mx-auto fixed flex flex-col'>
@@ -30,7 +29,7 @@ const Nav = () => {
                                     <li className='navlink' key={item.id}>
                                         <NavLink className={`${item.border} ${item.new && 'relative'} hover:border-b-[4px] uppercase h-[50px] px-[1.1rem] text-[0.9rem] text-[#282c3f] flex items-start`} to={item.path}>{item.title}{item.new && <span className='absolute top-0 right-[-0.3rem] text-[0.6rem] text-[#ff3f6c]'>new</span>}</NavLink>
                                         {
-                                           item.category && <NavDropdown data={item.category} visibility={[visible, setVisible]} />
+                                           item.category && <NavDropdown data={item.category} />
                                         }
                                     </li>
                                 ))

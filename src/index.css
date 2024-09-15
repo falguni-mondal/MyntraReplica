@@ -14,6 +14,7 @@
 
 html{
   font-family: "assistant-regular";
+  color: #282c3f
 }
 #root{
   width: 100%;
@@ -23,4 +24,15 @@ html{
 }
 .navlink:hover .navcategory-bg {
   visibility: visible;
+}
+.navlink:hover .navcategory{
+  opacity: 1;
+  pointer-events: all;
+  transition: all 0.25s 0.3s;
+}
+.navcategory-bg:hover{
+  pointer-events: none;
+}
+.category-link:hover{
+  font-family: assistant-bold;
 }
