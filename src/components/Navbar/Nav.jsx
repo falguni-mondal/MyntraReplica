@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { IoIosSearch } from "react-icons/io";
 import { CiUser } from "react-icons/ci";
 import { CiHeart } from "react-icons/ci";
@@ -65,10 +65,10 @@ const Nav = () => {
                         <ul className='flex h-full items-end font-["assistant-bold"]'>
                             {
                                 nav.map(item => (
-                                    <li key={item.id}>
-                                        <Link onMouseEnter={() => setCategory(item.category)} onMouseLeave={() => setCategory('')} className={`${item.border} ${item.new && 'relative'} hover:border-b-[4px] uppercase h-[8.2vh] px-[1.1rem] text-[0.9rem] text-[#282c3f] flex items-start`} to={item.path}>{item.title}{item.new && <span className='absolute top-0 right-[-0.3rem] text-[0.6rem] text-[#ff3f6c]'>new</span>}</Link>
+                                    <li className='navlink' key={item.id}>
+                                        <NavLink className={`${item.border} ${item.new && 'relative'} hover:border-b-[4px] uppercase h-[8.2vh] px-[1.1rem] text-[0.9rem] text-[#282c3f] flex items-start`} to={item.path}>{item.title}{item.new && <span className='absolute top-0 right-[-0.3rem] text-[0.6rem] text-[#ff3f6c]'>new</span>}</NavLink>
                                         {
-                                            category && <NavDropdown data={category} />
+                                           item.category && <NavDropdown data={item.category} />
                                         }
                                     </li>
                                 ))
